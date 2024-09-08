@@ -38,5 +38,5 @@ You will need to use **ESP32 for Arduino version 2.0.0** for DeautherINO to work
     compiler.c.elf.libs.esp32s2
     compiler.c.elf.libs.esp32s3
     compiler.c.elf.libs.esp32c3
-6. Open the Serial Monitor at a baud rate of `115200` to view which networks are being Deauthed.
+6. Open the Serial Monitor at a baud rate of `115200`.
 
