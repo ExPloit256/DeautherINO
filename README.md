@@ -1,6 +1,6 @@
 # DeautherINO
 
-A simple and lightweight yet powerful ESP32 Deauther
+A simple and lightweight yet effective ESP32 Deauther
 
 **DeautherINO** is a no-nonsense, straightforward tool based on the ESP32 that can send deauthentication packets to any WiFi network around you. It utilizes the capability of ESP32 for sending raw 802.11 frames, making it suitable for testing network security and learning about WiFi vulnerabilities.
 
