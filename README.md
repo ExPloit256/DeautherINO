@@ -21,7 +21,7 @@ A lightweight yet powerful ESP32 Deauther
 
 You will need to use **ESP Arduino 2.0.0** for DeautherINO to work properly.
 
-1. Install the Arduino IDE and add ESP32 support, version 2.0.0.
+1. Install the Arduino IDE and add to the boards manager ESP32 version 2.0.0.
 2. Open `platform.txt`:
    - **Windows**: It should be at `C:\\Users\\<USERNAME>\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\2.0.0\\platform.txt`
    - **Linux**: It should be at `~/.arduino15/packages/esp32/hardware/esp32/2.0.0/platform.txt`
