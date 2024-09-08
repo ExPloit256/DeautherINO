@@ -32,9 +32,11 @@ You will need to use **ESP32 for Arduino version 2.0.0** for DeautherINO to work
    build.extra_flags.esp32s2
    build.extra_flags.esp32s3
    build.extra_flags.esp32c3
-5.Add `-zmuldefs` to the following compiler settings
+5. Add `-zmuldefs` to the following compiler settings.
    ```txt
     compiler.c.elf.libs.esp32
     compiler.c.elf.libs.esp32s2
     compiler.c.elf.libs.esp32s3
     compiler.c.elf.libs.esp32c3
+6. Open the serial monitor for 115200 baud to read the output.
+
