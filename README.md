@@ -32,3 +32,9 @@ You will need to use **ESP Arduino 2.0.0** for DeautherINO to work properly.
    build.extra_flags.esp32s2
    build.extra_flags.esp32s3
    build.extra_flags.esp32c3
+5.Add `-zmuldefs` to the following compiler settings
+   ```txt
+    compiler.c.elf.libs.esp32
+    compiler.c.elf.libs.esp32s2
+    compiler.c.elf.libs.esp32s3
+    compiler.c.elf.libs.esp32c3
