@@ -84,12 +84,13 @@ You will need to use **ESP32 for Arduino version 2.0.0** for DeautherINO to work
 
 To help you get started, here are some recommended settings for different use cases:
 
-- **Walking Around (Dynamic Environment)**:
+**Walking Around (Dynamic Environment)**:
   ```cpp
   int scan_delay = 10;    // Quick scans for rapid changes
   int send_delay = 30;    // Moderate packet sending rate
   int deauthPacketRetransmissions = 20; // Balanced impact
   int retransmissionSessions = 3; // Adequate for mobile use
+```
 
 **Mall or Busy Area (High Density)**:
 ```cpp
