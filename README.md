@@ -8,7 +8,8 @@ A simple and lightweight yet effective ESP32 Deauther
 
 - **Easy Setup**: Get started using just the Arduino IDE—no complex frameworks or extra hardware required.
 - **Lean & Mean**: The code is kept lean but powerful enough to send deauth packets for disrupting client connections on surrounding networks.
-- **Customizable**: Easily change variables such as the channel, packet timing, or target networks.
+- **Customizable**: Fine-tune parameters like channel selection, packet timing, and retransmission settings to match your specific needs and scenarios.
+
 
 ## Why Use DeautherINO?
 
