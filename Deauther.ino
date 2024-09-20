@@ -5,7 +5,7 @@ extern "C" int ieee80211_raw_frame_sanity_check(int32_t arg, int32_t arg2, int32
 #include "WiFi.h"
 #include "esp_wifi.h"
 
-// GPIO 1 CONSTANT
+// GPIO 2 CONSTANT
 #define LED_PIN 2
 
 // Global variables(initializing the wifi channel to 1 as default)
